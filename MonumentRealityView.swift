@@ -49,15 +49,15 @@ struct MonumentRealityView: UIViewRepresentable {
         private weak var arView: ARView?
         private weak var camera: PerspectiveCamera?
 
-        private var target = SIMD3<Float>(0.05, 2.15, 0.35)
-        private var yaw: Float = 0.02
-        private var pitch: Float = 0.23
-        private var distance: Float = 12.0
+        private var target = SIMD3<Float>(0.10, 2.75, 0.45)
+        private var yaw: Float = -0.74
+        private var pitch: Float = 0.48
+        private var distance: Float = 19.2
         private var didSetInitialFit = false
         private var lastIsPortrait: Bool?
 
-        private let minDistance: Float = 10.0
-        private let maxDistance: Float = 22.0
+        private let minDistance: Float = 12.0
+        private let maxDistance: Float = 30.0
 
         func attach(camera: PerspectiveCamera, to view: ARView) {
             self.camera = camera
@@ -84,11 +84,12 @@ struct MonumentRealityView: UIViewRepresentable {
 
             let isPortrait = size.height > size.width
             if !didSetInitialFit || lastIsPortrait != isPortrait {
-                target = [0.05, 2.15, 0.35]
-                yaw = 0.02
-                pitch = isPortrait ? 0.23 : 0.22
-                distance = isPortrait ? 16.0 : 12.8
-                camera.camera.fieldOfViewInDegrees = isPortrait ? 40 : 31
+                // Default composition: closer to an isometric postcard frame.
+                target = [0.10, 2.75, 0.45]
+                yaw = isPortrait ? -0.74 : -0.70
+                pitch = isPortrait ? 0.48 : 0.44
+                distance = isPortrait ? 19.2 : 15.8
+                camera.camera.fieldOfViewInDegrees = isPortrait ? 24 : 22
 
                 didSetInitialFit = true
                 lastIsPortrait = isPortrait
@@ -102,10 +103,10 @@ struct MonumentRealityView: UIViewRepresentable {
             let delta = gesture.translation(in: gesture.view)
             gesture.setTranslation(.zero, in: gesture.view)
 
-            let sensitivity: Float = 0.0042
+            let sensitivity: Float = 0.0038
             yaw -= Float(delta.x) * sensitivity
             pitch += Float(delta.y) * sensitivity
-            pitch = max(0.08, min(0.55, pitch))
+            pitch = max(0.18, min(0.72, pitch))
 
             applyCamera()
         }
@@ -116,16 +117,16 @@ struct MonumentRealityView: UIViewRepresentable {
             gesture.setTranslation(.zero, in: gesture.view)
 
             // Move the focal target in screen-space: content follows finger drag.
-            let worldPerPoint = distance * 0.0028
+            let worldPerPoint = distance * 0.00195
             let right = SIMD3<Float>(cos(yaw), 0, -sin(yaw))
             let up = SIMD3<Float>(0, 1, 0)
 
             target -= right * Float(delta.x) * worldPerPoint
             target += up * Float(delta.y) * worldPerPoint
 
-            target.x = max(-5.2, min(5.2, target.x))
-            target.y = max(0.3, min(5.5, target.y))
-            target.z = max(-3.2, min(4.2, target.z))
+            target.x = max(-7.0, min(7.0, target.x))
+            target.y = max(0.6, min(7.2, target.y))
+            target.z = max(-4.4, min(5.8, target.z))
 
             applyCamera()
         }

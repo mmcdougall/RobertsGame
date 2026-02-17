@@ -65,6 +65,38 @@ enum MonumentSceneBuilder {
             position: [0.0, 4.18, 0.0],
             color: Palette.baseLight
         )
+        addBox(
+            to: group,
+            size: [2.10, 0.05, 2.10],
+            position: [0.0, 2.64, 0.0],
+            color: UIColor(hex: 0x8868D7, alpha: 0.62),
+            cornerRadius: 0.012
+        )
+        addBox(
+            to: group,
+            size: [2.10, 0.05, 2.10],
+            position: [0.0, 3.12, 0.0],
+            color: UIColor(hex: 0x8C6CDA, alpha: 0.54),
+            cornerRadius: 0.012
+        )
+        addCornerStuds(
+            to: group,
+            centerX: 0.0,
+            centerZ: 0.0,
+            span: 1.76,
+            y: 2.68,
+            size: 0.14,
+            color: Palette.baseLight
+        )
+        addCornerStuds(
+            to: group,
+            centerX: 0.0,
+            centerZ: 0.0,
+            span: 1.76,
+            y: 3.16,
+            size: 0.12,
+            color: UIColor(hex: 0x9A7CE3)
+        )
 
         addBox(
             to: group,
@@ -95,6 +127,13 @@ enum MonumentSceneBuilder {
             color: Palette.bridgeTop
         )
         upperRamp.orientation = simd_quatf(angle: -0.29, axis: [0, 0, 1])
+        addBox(
+            to: group,
+            size: [1.82, 0.03, 0.10],
+            position: [-1.20, 3.53, 0.96],
+            color: Palette.bridgeLight,
+            cornerRadius: 0.008
+        )
 
         let lowerRamp = addBox(
             to: group,
@@ -103,6 +142,13 @@ enum MonumentSceneBuilder {
             color: Palette.bridgeTop
         )
         lowerRamp.orientation = simd_quatf(angle: -0.23, axis: [0, 0, 1])
+        addBox(
+            to: group,
+            size: [1.34, 0.03, 0.10],
+            position: [-2.07, 2.80, 1.20],
+            color: Palette.bridgeLight,
+            cornerRadius: 0.008
+        )
 
         addRampSteps(
             to: group,
@@ -123,6 +169,13 @@ enum MonumentSceneBuilder {
             size: [1.44, 0.20, 0.60],
             position: [-0.18, 1.70, 1.58],
             color: Palette.bridgeTop
+        )
+        addBox(
+            to: group,
+            size: [1.20, 0.04, 0.10],
+            position: [-0.18, 1.84, 1.81],
+            color: Palette.bridgeLight,
+            cornerRadius: 0.01
         )
 
         addPortal(
@@ -155,8 +208,13 @@ enum MonumentSceneBuilder {
         addWindowSlit(to: group, position: [0.58, 2.4, 1.0], height: 0.24)
         addWindowSlit(to: group, position: [0.56, 1.72, 0.74], height: 0.24)
         addWindowSlit(to: group, position: [0.56, 1.12, 0.58], height: 0.24)
+        addWallPatch(to: group, position: [0.61, 2.05, 0.9], size: [0.12, 0.06, 0.03])
+        addWallPatch(to: group, position: [0.61, 1.49, 0.66], size: [0.11, 0.05, 0.03])
+        addWallPatch(to: group, position: [0.60, 0.96, 0.50], size: [0.10, 0.05, 0.03])
 
         addAccentPad(to: group, position: [0.45, 1.83, 1.59], size: [0.20, 0.03, 0.20])
+        addPost(to: group, position: [-2.26, 2.98, 1.18], height: 0.10)
+        addPost(to: group, position: [-1.90, 3.24, 1.02], height: 0.10)
 
         addTraveler(
             to: group,
@@ -198,6 +256,20 @@ enum MonumentSceneBuilder {
             position: [0.05, 2.48, 0.02],
             color: Palette.bridgeUnder
         )
+        addBox(
+            to: group,
+            size: [4.16, 0.04, 0.12],
+            position: [0.05, 3.06, 0.50],
+            color: Palette.bridgeLight,
+            cornerRadius: 0.01
+        )
+        addBox(
+            to: group,
+            size: [4.16, 0.04, 0.12],
+            position: [0.05, 3.06, -0.46],
+            color: Palette.bridgeLight,
+            cornerRadius: 0.01
+        )
 
         addBox(
             to: group,
@@ -213,6 +285,12 @@ enum MonumentSceneBuilder {
         )
         addDome(to: group, position: [-1.43, 6.78, -0.08], radius: 0.47)
         addFlag(to: group, position: [-1.23, 7.30, 0.04], scale: 0.94)
+        addTrimBands(
+            to: group,
+            center: [-1.44, 0.0, -0.10],
+            size: [0.98, 3.88, 0.98],
+            levels: [0.24, 0.46, 0.70]
+        )
 
         addBox(
             to: group,
@@ -228,6 +306,12 @@ enum MonumentSceneBuilder {
         )
         addDome(to: group, position: [1.27, 5.62, 0.12], radius: 0.40)
         addFlag(to: group, position: [1.43, 6.06, 0.30], scale: 0.80)
+        addTrimBands(
+            to: group,
+            center: [1.26, 0.0, 0.14],
+            size: [1.12, 2.52, 1.12],
+            levels: [0.30, 0.60]
+        )
 
         addBox(
             to: group,
@@ -253,6 +337,13 @@ enum MonumentSceneBuilder {
             size: [1.52, 0.06, 0.42],
             position: [1.68, 3.36, 0.82],
             color: UIColor(hex: 0xB04E89)
+        )
+        addBox(
+            to: group,
+            size: [1.44, 0.04, 0.12],
+            position: [1.68, 3.34, 1.07],
+            color: Palette.bridgeLight,
+            cornerRadius: 0.01
         )
 
         addPortal(
@@ -294,6 +385,22 @@ enum MonumentSceneBuilder {
         addAccentPad(to: group, position: [0.40, 3.03, -0.43], size: [0.18, 0.03, 0.18])
         addAccentPad(to: group, position: [0.42, 2.34, 0.97], size: [0.18, 0.03, 0.18])
         addAccentPad(to: group, position: [1.72, 2.43, 0.96], size: [0.18, 0.03, 0.18])
+        addPost(to: group, position: [1.05, 2.96, 0.48], height: 0.11)
+        addPost(to: group, position: [0.16, 2.10, 1.28], height: 0.11)
+        addPost(to: group, position: [2.34, 2.62, 1.03], height: 0.11)
+
+        addPillarRow(
+            to: group,
+            startX: 0.92,
+            count: 6,
+            step: 0.36,
+            yBase: 0.52,
+            z: 1.16,
+            height: 0.62,
+            width: 0.12,
+            depth: 0.12,
+            color: Palette.bridgeMid
+        )
 
         addDoor(to: group, position: [-1.44, 4.95, 0.38], size: [0.20, 0.64, 0.05])
         addDoor(to: group, position: [1.27, 4.22, 0.47], size: [0.20, 0.56, 0.05])
@@ -301,6 +408,9 @@ enum MonumentSceneBuilder {
         addWindowSlit(to: group, position: [-0.52, 3.14, 0.39], height: 0.22)
         addWindowSlit(to: group, position: [0.34, 3.10, 0.40], height: 0.22)
         addWindowSlit(to: group, position: [1.12, 3.04, 0.44], height: 0.22)
+        addWallPatch(to: group, position: [-0.92, 3.28, 0.28], size: [0.11, 0.06, 0.03])
+        addWallPatch(to: group, position: [0.03, 3.22, 0.30], size: [0.12, 0.06, 0.03])
+        addWallPatch(to: group, position: [0.93, 3.18, 0.32], size: [0.10, 0.05, 0.03])
     }
 
     private static func buildMidConnections(in parent: Entity) {
@@ -315,6 +425,20 @@ enum MonumentSceneBuilder {
             size: [1.24, 0.18, 0.58],
             position: [0.56, 1.62, 1.18],
             color: Palette.bridgeMid
+        )
+        addBox(
+            to: parent,
+            size: [1.60, 0.04, 0.12],
+            position: [-0.24, 1.96, 1.36],
+            color: Palette.bridgeLight,
+            cornerRadius: 0.01
+        )
+        addBox(
+            to: parent,
+            size: [1.08, 0.04, 0.10],
+            position: [0.56, 1.74, 1.38],
+            color: Palette.bridgeLight,
+            cornerRadius: 0.01
         )
 
         addPortal(
@@ -335,9 +459,38 @@ enum MonumentSceneBuilder {
         addOrb(to: parent, position: [-0.66, 1.45, 1.64], radius: 0.05, color: UIColor(hex: 0x893C7B))
         addOrb(to: parent, position: [-0.28, 1.45, 1.64], radius: 0.05, color: UIColor(hex: 0x893C7B))
         addOrb(to: parent, position: [0.10, 1.45, 1.64], radius: 0.05, color: UIColor(hex: 0x893C7B))
+
+        addPillarRow(
+            to: parent,
+            startX: -0.06,
+            count: 3,
+            step: 0.32,
+            yBase: 0.50,
+            z: 1.24,
+            height: 0.56,
+            width: 0.10,
+            depth: 0.10,
+            color: Palette.bridgeMid
+        )
     }
 
     private static func addHazeLayers(in parent: Entity) {
+        let floor = ModelEntity(
+            mesh: .generateBox(size: [14.6, 0.02, 14.6]),
+            materials: [UnlitMaterial(color: UIColor(hex: 0x8A63B7, alpha: 0.21))]
+        )
+        floor.position = [0.0, -0.45, 1.35]
+        floor.orientation = simd_quatf(angle: .pi * 0.25, axis: [0, 1, 0])
+        parent.addChild(floor)
+
+        let farFloor = ModelEntity(
+            mesh: .generateBox(size: [18.5, 0.02, 18.5]),
+            materials: [UnlitMaterial(color: UIColor(hex: 0x8C64BC, alpha: 0.10))]
+        )
+        farFloor.position = [0.0, -0.62, 1.45]
+        farFloor.orientation = simd_quatf(angle: .pi * 0.25, axis: [0, 1, 0])
+        parent.addChild(farFloor)
+
         let hazeA = ModelEntity(
             mesh: .generateBox(size: [13.0, 0.02, 10.0]),
             materials: [UnlitMaterial(color: UIColor(hex: 0xC674C8, alpha: 0.22))]
@@ -354,13 +507,13 @@ enum MonumentSceneBuilder {
     }
 
     private static func addAtmosphere(in parent: Entity) {
-        for idx in 0..<72 {
+        for idx in 0..<108 {
             let t = Float(idx)
             let x = remap(fract(sin(t * 12.9898) * 43_758.547), -6.4, 6.4)
             let y = remap(fract(sin(t * 4.221) * 11_173.273), 1.0, 6.8)
             let z = remap(fract(sin(t * 8.731) * 3_347.121), -3.4, 3.2)
-            let radius: Float = idx.isMultiple(of: 6) ? 0.028 : 0.014
-            let alpha: CGFloat = idx.isMultiple(of: 6) ? 0.28 : 0.18
+            let radius: Float = idx.isMultiple(of: 7) ? 0.029 : 0.013
+            let alpha: CGFloat = idx.isMultiple(of: 7) ? 0.30 : 0.16
 
             let star = ModelEntity(
                 mesh: .generateSphere(radius: radius),
@@ -454,6 +607,85 @@ enum MonumentSceneBuilder {
         }
     }
 
+    private static func addCornerStuds(
+        to parent: Entity,
+        centerX: Float,
+        centerZ: Float,
+        span: Float,
+        y: Float,
+        size: Float,
+        color: UIColor
+    ) {
+        let offsets: [SIMD3<Float>] = [
+            [centerX - span * 0.5, y, centerZ - span * 0.5],
+            [centerX + span * 0.5, y, centerZ - span * 0.5],
+            [centerX - span * 0.5, y, centerZ + span * 0.5],
+            [centerX + span * 0.5, y, centerZ + span * 0.5]
+        ]
+
+        for point in offsets {
+            addBox(
+                to: parent,
+                size: [size, size, size],
+                position: point,
+                color: color,
+                cornerRadius: size * 0.22
+            )
+        }
+    }
+
+    private static func addTrimBands(
+        to parent: Entity,
+        center: SIMD3<Float>,
+        size: SIMD3<Float>,
+        levels: [Float]
+    ) {
+        for level in levels {
+            let y = center.y + (size.y * level)
+            addBox(
+                to: parent,
+                size: [size.x * 1.04, 0.045, size.z * 1.04],
+                position: [center.x, y, center.z],
+                color: UIColor(hex: 0x8B6EDD, alpha: 0.56),
+                cornerRadius: 0.01
+            )
+        }
+    }
+
+    private static func addPillarRow(
+        to parent: Entity,
+        startX: Float,
+        count: Int,
+        step: Float,
+        yBase: Float,
+        z: Float,
+        height: Float,
+        width: Float,
+        depth: Float,
+        color: UIColor
+    ) {
+        for idx in 0..<count {
+            let x = startX + (Float(idx) * step)
+            addBox(
+                to: parent,
+                size: [width, height, depth],
+                position: [x, yBase + (height * 0.5), z],
+                color: color,
+                cornerRadius: 0.01
+            )
+        }
+    }
+
+    private static func addWallPatch(to parent: Entity, position: SIMD3<Float>, size: SIMD3<Float>) {
+        addBox(
+            to: parent,
+            size: size,
+            position: position,
+            color: UIColor(hex: 0xA28AE7, alpha: 0.45),
+            cornerRadius: 0.01
+        )
+    }
+
     private static func addDoor(to parent: Entity, position: SIMD3<Float>, size: SIMD3<Float>) {
         addBox(
             to: parent,
@@ -535,6 +767,16 @@ enum MonumentSceneBuilder {
                 cornerRadius: 0.012 * scale
             )
         }
+    }
+
+    private static func addPost(to parent: Entity, position: SIMD3<Float>, height: Float) {
+        addBox(
+            to: parent,
+            size: [0.04, height, 0.04],
+            position: [position.x, position.y + (height * 0.5), position.z],
+            color: UIColor(hex: 0xF4E8FC, alpha: 0.90),
+            cornerRadius: 0.01
+        )
     }
 
     private static func addAccentPad(
